@@ -12,17 +12,17 @@
  */
 const char* ssid = "";
 const char* password = "";
-const char* host = "garage2";
 
-const String controls = "<a href=\"/on\">turn on</a> or <a href=\"/off\">turn off</a> or <a href=\"/toggle\">toggle</a>";
+/*
+ * append ".local" or whatever your search domain is to access the web interface
+ */
+const char* host = "garage1";
+
+const String controls = "<form method=\"post\"><button type=\"submit\">Toggle</button></form>";
 
 const int relayPin = D1;
 
 ESP8266WebServer server(80);
-
-void handleRoot() {
-  server.send(200, "text/html", "hello from esp8266!" + controls);
-}
 
 void handleNotFound(){
   String message = "File Not Found\n\n";
@@ -79,23 +79,16 @@ void setup(void){
     MDNS.addService("http", "tcp", 80);
   }
 
-  server.on("/", handleRoot);
-
-  server.on("/on", [](){
-    turn_on();
+  server.on("/", HTTP_GET, [](){
     server.send(200, "text/html", controls);
   });
 
-  server.on("/off", [](){
-    turn_off();
-    server.send(200, "text/html", controls);
-  });
-
-  server.on("/toggle", [](){
+  server.on("/", HTTP_POST, [](){
     turn_on();
     delay(1000);
     turn_off();
-    server.send(200, "text/html", controls);
+    server.sendHeader("Location", "/", true);
+    server.send (302, "text/plain", "");
   });
 
   server.onNotFound(handleNotFound);

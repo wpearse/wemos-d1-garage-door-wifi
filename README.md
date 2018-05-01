@@ -8,6 +8,11 @@ Set three options at the top of the source file:
 
 Download this code to the Wemos D1. Wire the pushbutton input on the garage door the relay's contacts (in my case, the two NO contacts).
 
+# Assumptions
+
+1. You're using the Wemos relay shield
+2. Your search domain is _.local_. Substitute this in the URL you use to access the D1.
+
 # Use
 
 Once the D1 is installed and connected to wifi visit _name-of-garage-door.local_ in a browser. Hit the toggle link to active the garage door.
@@ -15,4 +20,3 @@ Once the D1 is installed and connected to wifi visit _name-of-garage-door.local_
 # Gotchas
 
 - https://news.ycombinator.com/item?id=16964907
-- Assumption is that you're using the Wemos relay shield
