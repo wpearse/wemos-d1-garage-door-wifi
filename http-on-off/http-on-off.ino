@@ -18,7 +18,12 @@ const char* password = "";
  */
 const char* host = "garage1";
 
-const String controls = "<form method=\"post\"><button type=\"submit\">Toggle</button></form>";
+/*
+ * Easiest way to adjust the style is load web page in Mobile Safari, connect to your Mac
+ * with cable, and then Develop > iPhone > garageX.local from Safari. Tweak styles from there. 
+ */
+const String buttonStyle = "-webkit-appearance: none; border-radius: 0; width: 100%; height: 30%; font-size: 72px; color: white; background-color: #08c;";
+const String controls = "<form method=\"post\"><button type=\"submit\" style=\"" + buttonStyle + "\">Toggle</button></form>";
 
 const int relayPin = D1;
 
