@@ -8,15 +8,11 @@
 #include <ESP8266mDNS.h>
 
 /*
- * TODO: figure out equivalent of .env file?
+ * You'll need to ensure there's an .env file.
+ * 
+ * (I know this isn't C-like, but whatever, it works.)
  */
-const char* ssid = "";
-const char* password = "";
-
-/*
- * append ".local" or whatever your search domain is to access the web interface
- */
-const char* host = "garage1";
+#include "env.h"
 
 /*
  * Easiest way to adjust the style is load web page in Mobile Safari, connect to your Mac

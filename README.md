@@ -1,12 +1,12 @@
 # Installation
 
-Set three options at the top of the source file:
+Copy _env.example.h_ to _env.h_. Set the three options in _.env_:
 
 1. WiFi SSID to connect to
 2. Password for the WiFi
 3. Name of this garage door (you'll use this to access the web page)
 
-Download this code to the Wemos D1. Wire the pushbutton input on the garage door the relay's contacts (in my case, the two NO contacts).
+Open _http-on-off/http-on-off.ino_, compile and upload this code to the Wemos D1. Wire the pushbutton input on the garage door to the relay's contacts (in my case, the two NO contacts on the relay shield).
 
 # Assumptions
 
